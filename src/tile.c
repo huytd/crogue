@@ -1,17 +1,17 @@
 #include "rogue.h"
 
-Tile make_tile(TileType type) {
-	Tile tile;
+tile_t make_tile(tile_type_e type) {
+	tile_t tile;
 	tile.type = type;
 	tile.explored = false;
 	tile.visible = false;
 	return tile;
 }
 
-Tile** tile_map_init() {
-	Tile** map = calloc(MAP_HEIGHT, sizeof(Tile*));
+tile_t** tile_map_init() {
+	tile_t** map = calloc(MAP_HEIGHT, sizeof(tile_t*));
 	for (int y = 0; y < MAP_HEIGHT; y++) {
-		map[y] = calloc(MAP_WIDTH, sizeof(Tile));
+		map[y] = calloc(MAP_WIDTH, sizeof(tile_t));
 		for (int x = 0; x < MAP_WIDTH; x++) {
 			map[y][x] = make_tile(TL_WALL);
 			// mockup room logic
