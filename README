@@ -1,0 +1,14 @@
+crogue is a roguelike game that still in WIP
+
+To compile, you'll need:
+
+	- CMake
+	- libncurses
+
+How to build the project:
+
+	mkdir build && cd build
+	cmake ..
+	make
+
+After this, you'll get the crogue binary, just run it.
