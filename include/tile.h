@@ -1,7 +1,7 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include <stdbool.h>
+#include "rogue.h"
 
 typedef enum {
 	TL_WALL 	= 0,

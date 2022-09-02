@@ -2,9 +2,12 @@
 #define GRAPHICS_H
 
 #include "rogue.h"
+#include "game.h"
 
 static int SCREEN_HEIGHT 	= MAP_HEIGHT; /* These sizes will be replaced with the actual */
 static int SCREEN_WIDTH 	= MAP_WIDTH;  /* size of the terminal after graphics_init() call */
+
+#define BORDER_SIZE 		1
 
 #define STYLE_OFFSET_TILE 	100
 #define STYLE_OFFSET_ENTITY 200
@@ -40,5 +43,7 @@ void graphics_destroy();
 
 void draw_tile(int x, int y, tile_t t);
 void draw_entity(int x, int y, entity_type_e e);
+void draw_gui();
+void draw_game_messages(message_t messages[], int last_message);
 
 #endif

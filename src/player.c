@@ -24,7 +24,7 @@ void player_try_move(player_t* p, tile_t** map, char direction) {
 	if (direction == 'u') { dx =  1; dy = -1; }
 	int nx = p->x + dx;
 	int ny = p->y + dy;
-	if (map[ny][nx].type != TL_WALL && map[ny][nx].type != TL_ROCK) {
+	if (is_within_map(nx, ny) && map[ny][nx].type != TL_WALL && map[ny][nx].type != TL_ROCK) {
 		p->x = nx;
 		p->y = ny;
 	}

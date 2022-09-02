@@ -8,6 +8,8 @@ int main() {
 
 	while (true) {
 		game_draw(game);
+		draw_gui();
+
 		int key = getch();
 		if (key == 'q') break;
 		if (key == 'r') game->map = tile_map_init();

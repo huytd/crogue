@@ -1,13 +1,14 @@
 #ifndef ROGUE_H
 #define ROGUE_H
 
+#include <stdbool.h>
 #include <curses.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 #define MAP_WIDTH 80
-#define MAP_HEIGHT 25
+#define MAP_HEIGHT 24
 
 #define MAX_ENTITIES 50
 
@@ -28,6 +29,7 @@ typedef enum {
 	IT_CORPSE 	= 2,
 } item_type_e;
 
+#include "utils.h"
 #include "tile.h"
 #include "player.h"
 #include "graphics.h"
