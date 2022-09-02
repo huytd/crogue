@@ -16,11 +16,17 @@ tile_t** tile_map_init() {
 			map[y][x] = make_tile(TL_WALL);
 			// mockup room logic
 			int dice = rand() % 100 + 1;
-			if (dice < 80 && dice > 10) {
+			if (dice < 80 && dice > 20) {
 				map[y][x].type = TL_FLOOR;
 			}
-			if (dice <= 10) {
+			if (dice > 5 && dice <= 20) {
 				map[y][x].type = TL_GRASS;
+			}
+			if (dice > 1 && dice <= 5) {
+				map[y][x].type = TL_ROCK;
+			}
+			if (dice <= 1) {
+				map[y][x].type = TL_WATER;
 			}
 		}
 	}

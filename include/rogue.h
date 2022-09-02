@@ -9,25 +9,53 @@
 #include "tile.h"
 #include "game.h"
 #include "graphics.h"
+#include "player.h"
 
 #define OFFSET_TILES 	0
-#define OFFSET_ENTITY 	1
+#define OFFSET_ENTITY 	5
+#define OFFSET_ITEMS 	9
 
 static char GLYPH_MAP[] = {
 	/* OFFSET_TILES  = 0 */
 	'#', 	/* TL_WALL   */
 	'.', 	/* TL_FLOOR  */
 	',', 	/* TL_GRASS  */
-	/* OFFSET_ENTITY = 2 */
+	'~', 	/* TL_WATER  */
+	'+', 	/* TL_ROCK  */
+	/* OFFSET_ENTITY = 5 */
 	'@',    /* ET_PLAYER */
-	'g',    /* ET_GLOBIN */
-	'd',    /* ET_DOG    */
-	'o',    /* ET_ORC    */
+	'b',    /* ET_BUG    */
+	's',    /* ET_SNAKE  */
+	'm',    /* ET_MICE   */
+	'w',    /* ET_WOLF   */
+	'T',    /* ET_TIGER  */
+	'B',    /* ET_BEAR   */
+	/* OFFSET_ITEMS = 9  */
+	'a', 	/* IT_APPLE  */
+	'}', 	/* IT_BANANA */
+	'%', 	/* IT_CORPSE */
 };
 
 #define MAP_WIDTH 80
 #define MAP_HEIGHT 25
 
 #define MAX_ENTITIES 50
+
+typedef enum {
+	ET_PLAYER 	= 0,
+	ET_BUG 		= 1,
+	ET_SNAKE 	= 2,
+	ET_BAT	 	= 3,
+	ET_MICE	 	= 4,
+	ET_WOLF	 	= 5,
+	ET_TIGER	= 6,
+	ET_BEAR		= 7,
+} entity_type_e;
+
+typedef enum {
+	IT_APPLE 	= 0,
+	IT_BANANA 	= 1,
+	IT_CORPSE 	= 2,
+} item_type_e;
 
 #endif

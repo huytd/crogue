@@ -12,3 +12,30 @@ How to build the project:
 	make
 
 After this, you'll get the crogue binary, just run it.
+
+--------------------------------------------------
+
+Story:
+
+You are a young man who is lost in a strange forest, empty-handed,
+and your phone battery is already dead. You have to learn how to
+survive and find your way back home.
+
+Gameplay:
+
+- Survive hunger by collecting anything that edible (fruits, bugs, corpse)
+  Just don't get killed by food poisoning
+- Crafting tools to fight wild animals or catching fishes
+  Of course, you don't need a hunting license here
+- Escape the forest and make it to the modern world where
+  you have a cable to charge your phone, so you can all 911
+
+Environment:
+
+- Grass (,): Walkable, a block of 4 grass tiles can be used as a hide
+  place when you're being chased.
+- Water puddle (~): Walkable, if next to a grass tile, it can be collected
+  to drink later on. If it's not, it might not safe to drink, and can
+  ruin your whole pouch.
+- Rock and metal (+): Not walkable, can be picked up for crafting or
+  throwing at animals. But they're heavy.

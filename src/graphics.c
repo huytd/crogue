@@ -8,9 +8,11 @@ void graphics_init() {
 	curs_set(false);
 	start_color();
 
-	init_pair(TL_WALL, COLOR_WHITE, COLOR_WHITE);
+	init_pair(TL_WALL, 	COLOR_WHITE,  COLOR_WHITE);
 	init_pair(TL_FLOOR, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(TL_GRASS, COLOR_GREEN, COLOR_BLACK);
+	init_pair(TL_GRASS, COLOR_GREEN,  COLOR_BLACK);
+	init_pair(TL_WATER, COLOR_BLUE,   COLOR_BLACK);
+	init_pair(TL_ROCK, 	COLOR_WHITE,  COLOR_BLACK);
 }
 
 void graphics_destroy() {
