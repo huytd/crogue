@@ -13,11 +13,11 @@ tile_t** tile_map_init() {
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		map[y] = calloc(MAP_WIDTH, sizeof(tile_t));
 		for (int x = 0; x < MAP_WIDTH; x++) {
-			map[y][x] = make_tile(TL_WALL);
+			map[y][x] = make_tile(TL_FLOOR);
 			// mockup room logic
 			int dice = rand() % 100 + 1;
-			if (dice < 80 && dice > 20) {
-				map[y][x].type = TL_FLOOR;
+			if (dice < 50 && dice > 20) {
+				map[y][x].type = TL_WALL;
 			}
 			if (dice > 5 && dice <= 20) {
 				map[y][x].type = TL_GRASS;

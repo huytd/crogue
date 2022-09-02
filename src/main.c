@@ -8,10 +8,10 @@ int main() {
 
 	while (true) {
 		game_draw(game);
-
 		int key = getch();
 		if (key == 'q') break;
 		if (key == 'r') game->map = tile_map_init();
+		game_input(game, key);
 	}
 
 	graphics_destroy();

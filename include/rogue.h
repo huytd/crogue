@@ -6,36 +6,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "tile.h"
-#include "game.h"
-#include "graphics.h"
-#include "player.h"
-
-#define OFFSET_TILES 	0
-#define OFFSET_ENTITY 	5
-#define OFFSET_ITEMS 	9
-
-static char GLYPH_MAP[] = {
-	/* OFFSET_TILES  = 0 */
-	'#', 	/* TL_WALL   */
-	'.', 	/* TL_FLOOR  */
-	',', 	/* TL_GRASS  */
-	'~', 	/* TL_WATER  */
-	'+', 	/* TL_ROCK  */
-	/* OFFSET_ENTITY = 5 */
-	'@',    /* ET_PLAYER */
-	'b',    /* ET_BUG    */
-	's',    /* ET_SNAKE  */
-	'm',    /* ET_MICE   */
-	'w',    /* ET_WOLF   */
-	'T',    /* ET_TIGER  */
-	'B',    /* ET_BEAR   */
-	/* OFFSET_ITEMS = 9  */
-	'a', 	/* IT_APPLE  */
-	'}', 	/* IT_BANANA */
-	'%', 	/* IT_CORPSE */
-};
-
 #define MAP_WIDTH 80
 #define MAP_HEIGHT 25
 
@@ -57,5 +27,10 @@ typedef enum {
 	IT_BANANA 	= 1,
 	IT_CORPSE 	= 2,
 } item_type_e;
+
+#include "tile.h"
+#include "player.h"
+#include "graphics.h"
+#include "game.h"
 
 #endif
