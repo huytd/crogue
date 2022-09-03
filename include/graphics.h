@@ -17,9 +17,13 @@ static int SCREEN_WIDTH 	= MAP_WIDTH;  /* size of the terminal after graphics_in
 #define GLYPH_OFFSET_ENTITY	5
 #define GLYPH_OFFSET_ITEM 	9
 
-#define COLOR_UNEXPLORED 	1
-#define COLOR_EXPLORED 		2
+#define STYLE_UNEXPLORED 	1
+#define STYLE_EXPLORED 		2
 #define GLYPH_UNEXPLORED	"░"
+
+#define COLOR_DARK_GRAY 	240
+#define COLOR_LIGHT_GRAY 	245
+#define COLOR_DEFAULT 		-1
 
 static char* GLYPH_MAP[] = {
 	/* GLYPH_OFFSET_TILE   = 0 */

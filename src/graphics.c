@@ -16,16 +16,16 @@ void graphics_init() {
 	keypad(stdscr, TRUE);
 	noecho();
 	curs_set(false);
+	use_default_colors();
 	start_color();
 
-	init_pair(COLOR_UNEXPLORED,	240,  COLOR_BLACK);
-	init_pair(COLOR_EXPLORED,	245,  COLOR_BLACK);
-	init_pair(STYLE_OFFSET_TILE + TL_WALL, 	COLOR_GREEN,  COLOR_BLACK);
-	init_pair(STYLE_OFFSET_TILE + TL_FLOOR, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(STYLE_OFFSET_TILE + TL_GRASS, COLOR_GREEN,  COLOR_BLACK);
-	init_pair(STYLE_OFFSET_TILE + TL_WATER, COLOR_BLUE,   COLOR_BLACK);
-	init_pair(STYLE_OFFSET_TILE + TL_ROCK, 	COLOR_WHITE,  COLOR_BLACK);
-
+	init_pair(STYLE_UNEXPLORED,	COLOR_DARK_GRAY,  COLOR_DEFAULT);
+	init_pair(STYLE_EXPLORED,	COLOR_LIGHT_GRAY,  COLOR_DEFAULT);
+	init_pair(STYLE_OFFSET_TILE + TL_WALL, 	COLOR_GREEN,  COLOR_DEFAULT);
+	init_pair(STYLE_OFFSET_TILE + TL_FLOOR, COLOR_YELLOW, COLOR_DEFAULT);
+	init_pair(STYLE_OFFSET_TILE + TL_GRASS, COLOR_GREEN,  COLOR_DEFAULT);
+	init_pair(STYLE_OFFSET_TILE + TL_WATER, COLOR_BLUE,   COLOR_DEFAULT);
+	init_pair(STYLE_OFFSET_TILE + TL_ROCK, 	COLOR_WHITE,  COLOR_DEFAULT);
 	init_pair(STYLE_OFFSET_ENTITY + ET_PLAYER, COLOR_BLACK, COLOR_YELLOW);
 
 	getmaxyx(stdscr, SCREEN_HEIGHT, SCREEN_WIDTH);
@@ -52,10 +52,10 @@ void graphics_destroy() {
 
 void draw_tile(int x, int y, tile_t t) {
 	if (!t.explored) {
-		wattrset(map_win, COLOR_PAIR(COLOR_UNEXPLORED));
+		wattrset(map_win, COLOR_PAIR(STYLE_UNEXPLORED));
 		mvwaddstr(map_win, y + BORDER_SIZE, x + BORDER_SIZE, GLYPH_UNEXPLORED);
 	} else {
-		wattrset(map_win, COLOR_PAIR(COLOR_EXPLORED));
+		wattrset(map_win, COLOR_PAIR(STYLE_EXPLORED));
 		if (t.visible) {
 			wattrset(map_win, COLOR_PAIR(STYLE_OFFSET_TILE + t.type));
 		}
