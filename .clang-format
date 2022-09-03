@@ -1,0 +1,9 @@
+BasedOnStyle: Mozilla
+IndentWidth: 4
+TabWidth: 4
+AlignConsecutiveAssignments: AcrossEmptyLines
+AlignConsecutiveMacros: AcrossEmptyLines
+AlignAfterOpenBracket: Align
+AlignOperands: AlignAfterOperator
+AlignTrailingComments: true
+SeparateDefinitionBlocks: Always

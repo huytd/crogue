@@ -5,6 +5,7 @@
 
 #define LIGHT_RADIUS 6
 
-void calculate_light(tile_t** map, player_t* player);
+void
+calculate_light(tile_t** map, player_t* player);
 
 #endif
