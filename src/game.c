@@ -7,6 +7,7 @@ game_t* game_init() {
 	game->player = player_init();
 	game->messages_count = 0;
 	memset(game->messages, 0, MAX_MESSAGES);
+	calculate_light(game->map, game->player);
 	return game;
 }
 
@@ -26,6 +27,7 @@ void game_input(game_t* game, char key) {
 		case 'h': case 'j': case 'k': case 'l':
 		case 'y': case 'n': case 'b': case 'u':
 			player_try_move(game->player, game->map, key);
+			calculate_light(game->map, game->player);
 			break;
 		default:
 			game_message(game, "Sorry. '%c' is not a valid key!\n", key);

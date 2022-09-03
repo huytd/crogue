@@ -19,4 +19,8 @@ static int max(int a, int b) {
 	return a > b ? a : b;
 }
 
+static int gen_number(int min, int max) {
+	return rand() % (max - min + 1) + min;
+}
+
 #endif

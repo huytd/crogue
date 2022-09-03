@@ -32,6 +32,7 @@ typedef enum {
 #include "utils.h"
 #include "tile.h"
 #include "player.h"
+#include "light.h"
 #include "graphics.h"
 #include "game.h"
 

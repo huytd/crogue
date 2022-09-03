@@ -18,6 +18,8 @@ void graphics_init() {
 	curs_set(false);
 	start_color();
 
+	init_pair(COLOR_UNEXPLORED,	240,  COLOR_BLACK);
+	init_pair(COLOR_EXPLORED,	245,  COLOR_BLACK);
 	init_pair(STYLE_OFFSET_TILE + TL_WALL, 	COLOR_GREEN,  COLOR_BLACK);
 	init_pair(STYLE_OFFSET_TILE + TL_FLOOR, COLOR_YELLOW, COLOR_BLACK);
 	init_pair(STYLE_OFFSET_TILE + TL_GRASS, COLOR_GREEN,  COLOR_BLACK);
@@ -49,9 +51,16 @@ void graphics_destroy() {
 }
 
 void draw_tile(int x, int y, tile_t t) {
-	wattron(map_win, COLOR_PAIR(STYLE_OFFSET_TILE + t.type));
-	mvwaddstr(map_win, y + BORDER_SIZE, x + BORDER_SIZE, GLYPH_MAP[GLYPH_OFFSET_TILE + t.type]);
-	wattroff(map_win, COLOR_PAIR(STYLE_OFFSET_TILE + t.type));
+	if (!t.explored) {
+		wattrset(map_win, COLOR_PAIR(COLOR_UNEXPLORED));
+		mvwaddstr(map_win, y + BORDER_SIZE, x + BORDER_SIZE, GLYPH_UNEXPLORED);
+	} else {
+		wattrset(map_win, COLOR_PAIR(COLOR_EXPLORED));
+		if (t.visible) {
+			wattrset(map_win, COLOR_PAIR(STYLE_OFFSET_TILE + t.type));
+		}
+		mvwaddstr(map_win, y + BORDER_SIZE, x + BORDER_SIZE, GLYPH_MAP[GLYPH_OFFSET_TILE + t.type]);
+	}
 }
 
 void draw_entity(int x, int y, entity_type_e e) {
