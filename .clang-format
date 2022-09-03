@@ -7,3 +7,4 @@ AlignAfterOpenBracket: Align
 AlignOperands: AlignAfterOperator
 AlignTrailingComments: true
 SeparateDefinitionBlocks: Always
+SortIncludes: Never

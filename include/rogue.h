@@ -31,11 +31,11 @@ typedef enum
     IT_CORPSE = 2,
 } item_type_e;
 
-#include "game.h"
-#include "graphics.h"
-#include "light.h"
-#include "player.h"
 #include "tile.h"
 #include "utils.h"
+#include "player.h"
+#include "light.h"
+#include "game.h"
+#include "graphics.h"
 
 #endif
