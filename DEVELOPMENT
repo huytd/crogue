@@ -1,0 +1,18 @@
+DEVELOPMENT NOTES
+
+The project is structured in a way that we can separate the
+gameplay logic away from the rendering logic, this will make
+it easier when we add more rendering target later on.
+
+The only rendering target that is supported for now is terminal
+using ncurses.
+
+crogue
+	+-- engine 			>> The gameplay logic
+	+-- render			>> All the render target
+	+-- src/main.c 		>> The entry point
+
+Same as other games like Nethack, the gameplay logic (in /engine)
+directory will be compiled into a shared library so we can initialize
+and run it on some other platform.
+

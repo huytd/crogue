@@ -1,10 +1,11 @@
 #include "rogue.h"
+#include "term.h"
 
 int
 main()
 {
     srand(time(NULL));
-    graphics_init();
+    term_graphics_init();
 
     game_t* game = game_init();
 
@@ -20,6 +21,6 @@ main()
         game_input(game, key);
     }
 
-    graphics_destroy();
+    term_graphics_destroy();
     return 0;
 }

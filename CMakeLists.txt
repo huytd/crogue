@@ -1,14 +1,19 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(Crogue)
+project(crogue)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
-file(GLOB MAIN_SOURCES CONFIGURE_DEPENDS "src/*.c")
+file(GLOB MAIN_SOURCES CONFIGURE_DEPENDS
+	"engine/*.c"
+	"render/**/*.c"
+	"src/*.c"
+)
+
+include_directories(${CMAKE_SOURCE_DIR}/engine)
+include_directories(${CMAKE_SOURCE_DIR}/render/term)
 
 add_executable(crogue ${MAIN_SOURCES})
-
-include_directories(${CMAKE_SOURCE_DIR}/include)
 
 target_link_libraries(crogue ncurses)

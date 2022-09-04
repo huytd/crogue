@@ -1,7 +1,6 @@
-#ifndef GRAPHICS_H
-#define GRAPHICS_H
+#ifndef TERM_GRAPHICS_H
+#define TERM_GRAPHICS_H
 
-#include "game.h"
 #include "rogue.h"
 
 static int SCREEN_HEIGHT = MAP_HEIGHT;
@@ -47,10 +46,10 @@ static char* GLYPH_MAP[] = {
 };
 
 void
-graphics_init();
+term_graphics_init();
 
 void
-graphics_destroy();
+term_graphics_destroy();
 
 void
 draw_tile(int x, int y, tile_t t);

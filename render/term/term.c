@@ -1,5 +1,5 @@
 #include "rogue.h"
-#include "graphics.h"
+#include "term.h"
 #include "util.h"
 #include <locale.h>
 
@@ -11,7 +11,7 @@ static WINDOW* ctl_win;
 static int MSG_CAPACITY = 0;
 
 void
-graphics_init()
+term_graphics_init()
 {
     setlocale(LC_ALL, "");
 
@@ -55,7 +55,7 @@ graphics_init()
 }
 
 void
-graphics_destroy()
+term_graphics_destroy()
 {
     endwin();
 }
