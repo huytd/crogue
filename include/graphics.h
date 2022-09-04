@@ -64,4 +64,7 @@ draw_gui();
 void
 draw_game_messages(message_t messages[], int last_message);
 
+void
+draw_game(game_t* game);
+
 #endif

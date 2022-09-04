@@ -9,7 +9,7 @@ main()
     game_t* game = game_init();
 
     while (true) {
-        game_draw(game);
+        draw_game(game);
         draw_gui();
 
         int key = getch();

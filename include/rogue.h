@@ -36,6 +36,5 @@ typedef enum
 #include "player.h"
 #include "light.h"
 #include "game.h"
-#include "graphics.h"
 
 #endif

@@ -23,9 +23,6 @@ game_t*
 game_init();
 
 void
-game_draw(game_t* game);
-
-void
 game_input(game_t* game, char key);
 
 void

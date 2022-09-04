@@ -1,4 +1,5 @@
 #include "rogue.h"
+#include "graphics.h"
 #include "util.h"
 #include <locale.h>
 
@@ -111,4 +112,17 @@ draw_game_messages(message_t messages[], int last_message)
         wprintw(msg_content_win, messages[i].buf);
         wattroff(msg_content_win, A_NORMAL | A_DIM | A_BOLD);
     }
+}
+
+void
+draw_game(game_t* game)
+{
+    for (int y = 0; y < MAP_HEIGHT; y++) {
+        for (int x = 0; x < MAP_WIDTH; x++) {
+            draw_tile(x, y, game->map[y][x]);
+        }
+    }
+
+    draw_entity(game->player->x, game->player->y, ET_PLAYER);
+    draw_game_messages(game->messages, game->messages_count);
 }

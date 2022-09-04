@@ -14,19 +14,6 @@ game_init()
 }
 
 void
-game_draw(game_t* game)
-{
-    for (int y = 0; y < MAP_HEIGHT; y++) {
-        for (int x = 0; x < MAP_WIDTH; x++) {
-            draw_tile(x, y, game->map[y][x]);
-        }
-    }
-
-    draw_player(game->player);
-    draw_game_messages(game->messages, game->messages_count);
-}
-
-void
 game_input(game_t* game, char key)
 {
     switch (key) {

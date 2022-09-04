@@ -10,12 +10,6 @@ player_init()
 }
 
 void
-draw_player(player_t* p)
-{
-    draw_entity(p->x, p->y, ET_PLAYER);
-}
-
-void
 player_try_move(player_t* p, tile_t** map, char direction)
 {
     int dx = 0;
