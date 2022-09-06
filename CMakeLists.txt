@@ -14,6 +14,9 @@ file(GLOB MAIN_SOURCES CONFIGURE_DEPENDS
 include_directories(${CMAKE_SOURCE_DIR}/engine)
 include_directories(${CMAKE_SOURCE_DIR}/render/term)
 
+add_compile_options(-fsanitize=address)
+add_link_options(-fsanitize=address)
+
 add_executable(crogue ${MAIN_SOURCES})
 
 target_link_libraries(crogue ncurses)
