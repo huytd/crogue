@@ -26,12 +26,6 @@ tile_map_init()
             if (dice > 5 && dice <= 20) {
                 map[y][x].type = TL_GRASS;
             }
-            if (dice > 1 && dice <= 5) {
-                map[y][x].type = TL_ROCK;
-            }
-            if (dice <= 1) {
-                map[y][x].type = TL_WATER;
-            }
         }
     }
     return map;

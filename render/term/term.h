@@ -8,13 +8,13 @@ static int SCREEN_WIDTH  = MAP_WIDTH;
 
 #define BORDER_SIZE         1
 
-#define STYLE_OFFSET_TILE   100
-#define STYLE_OFFSET_ENTITY 200
-#define STYLE_OFFSET_ITEM   300
+#define STYLE_OFFSET_TILE   10
+#define STYLE_OFFSET_ENTITY 30
+#define STYLE_OFFSET_ITEM   60
 
 #define GLYPH_OFFSET_TILE   0
-#define GLYPH_OFFSET_ENTITY 5
-#define GLYPH_OFFSET_ITEM   9
+#define GLYPH_OFFSET_ENTITY 3
+#define GLYPH_OFFSET_ITEM   10
 
 #define STYLE_UNEXPLORED    1
 #define STYLE_EXPLORED      2
@@ -29,9 +29,7 @@ static char* GLYPH_MAP[] = {
     "♣",  /* TL_WALL  */
     ".",  /* TL_FLOOR */
     "\"", /* TL_GRASS */
-    "~",  /* TL_WATER */
-    "⌓",  /* TL_ROCK  */
-    /* GLYPH_OFFSET_ENTITY = 5 */
+    /* GLYPH_OFFSET_ENTITY = 3 */
     "@", /* ET_PLAYER */
     "b", /* ET_BUG    */
     "s", /* ET_SNAKE  */
@@ -39,10 +37,12 @@ static char* GLYPH_MAP[] = {
     "w", /* ET_WOLF   */
     "T", /* ET_TIGER  */
     "B", /* ET_BEAR   */
-    /* GLYPH_OFFSET_ITEM   = 9 */
+    /* GLYPH_OFFSET_ITEM   = 10 */
     "a", /* IT_APPLE  */
     "}", /* IT_BANANA */
     "%", /* IT_CORPSE */
+    "~", /* IT_WATER  */
+    "⌓", /* IT_ROCK   */
 };
 
 void
@@ -56,6 +56,9 @@ draw_tile(int x, int y, tile_t t);
 
 void
 draw_entity(int x, int y, entity_type_e e);
+
+void
+draw_item(item_t* item, tile_t** map);
 
 void
 draw_gui();

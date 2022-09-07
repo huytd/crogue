@@ -7,6 +7,7 @@ static WINDOW* map_win;
 static WINDOW* msg_border_win;
 static WINDOW* msg_content_win;
 static WINDOW* ctl_win;
+static WINDOW* ctl_content_win;
 
 static int MSG_CAPACITY = 0;
 
@@ -27,9 +28,12 @@ term_graphics_init()
     init_pair(STYLE_OFFSET_TILE + TL_WALL, COLOR_GREEN, COLOR_DEFAULT);
     init_pair(STYLE_OFFSET_TILE + TL_FLOOR, COLOR_YELLOW, COLOR_DEFAULT);
     init_pair(STYLE_OFFSET_TILE + TL_GRASS, COLOR_GREEN, COLOR_DEFAULT);
-    init_pair(STYLE_OFFSET_TILE + TL_WATER, COLOR_BLUE, COLOR_DEFAULT);
-    init_pair(STYLE_OFFSET_TILE + TL_ROCK, COLOR_WHITE, COLOR_DEFAULT);
+
     init_pair(STYLE_OFFSET_ENTITY + ET_PLAYER, COLOR_BLACK, COLOR_YELLOW);
+
+    init_pair(STYLE_OFFSET_ITEM + IT_APPLE, COLOR_RED, COLOR_DEFAULT);
+    init_pair(STYLE_OFFSET_ITEM + IT_WATER, COLOR_BLUE, COLOR_DEFAULT);
+    init_pair(STYLE_OFFSET_ITEM + IT_ROCK, COLOR_WHITE, COLOR_DEFAULT);
 
     getmaxyx(stdscr, SCREEN_HEIGHT, SCREEN_WIDTH);
 
@@ -44,6 +48,10 @@ term_graphics_init()
                              1);
     ctl_win =
       newwin(SCREEN_HEIGHT, SCREEN_WIDTH - map_win_width, 0, map_win_width);
+    ctl_content_win = newwin(SCREEN_HEIGHT - 2 * BORDER_SIZE,
+                             SCREEN_WIDTH - map_win_width - 2 * BORDER_SIZE,
+                             BORDER_SIZE,
+                             map_win_width + BORDER_SIZE);
 
     box(map_win, 0, 0);
     box(msg_border_win, 0, 0);
@@ -96,6 +104,7 @@ draw_gui()
     wrefresh(msg_border_win);
     wrefresh(msg_content_win);
     wrefresh(ctl_win);
+    wrefresh(ctl_content_win);
 }
 
 void
@@ -115,6 +124,30 @@ draw_game_messages(message_t messages[], int last_message)
 }
 
 void
+draw_item(item_t* item, tile_t** map)
+{
+    if (is_within_map(item->x, item->y) && map[item->y][item->x].visible) {
+        wattrset(map_win, COLOR_PAIR(STYLE_OFFSET_ITEM + item->type));
+        mvwaddstr(map_win,
+                  item->y + BORDER_SIZE,
+                  item->x + BORDER_SIZE,
+                  GLYPH_MAP[GLYPH_OFFSET_ITEM + item->type]);
+    }
+}
+
+void
+draw_inventory(player_t* p)
+{
+    wmove(ctl_content_win, 0, 0);
+    for (int i = 0; i <= p->inventory->last_item; i++) {
+        item_t* item = get_item(p->inventory, i);
+        if (item != NULL) {
+            wprintw(ctl_content_win, "%d - %s\n", i + 1, item->name);
+        }
+    }
+}
+
+void
 draw_game(game_t* game)
 {
     for (int y = 0; y < MAP_HEIGHT; y++) {
@@ -123,6 +156,17 @@ draw_game(game_t* game)
         }
     }
 
+    for (int i = 0; i <= game->items->last_item; i++) {
+        item_t* item = get_item(game->items, i);
+        if (item != NULL) {
+            draw_item(item, game->map);
+        }
+    }
+
     draw_entity(game->player->x, game->player->y, ET_PLAYER);
+
+    draw_inventory(game->player);
+
     draw_game_messages(game->messages, game->messages_count);
 }
+
