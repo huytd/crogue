@@ -68,13 +68,12 @@ generate_items(game_t* game)
             int item_seed = gen_number(1, 30);
 
             if (is_between(item_seed, 0, 10)) {
-                add_item(game->items,
-                         item_init(IT_ROCK, x, y, "a pile of rock"));
+                add_item(game->items, item_init(IT_ROCK, x, y, "rock"));
             } else if (is_between(item_seed, 10, 25)) {
                 add_item(game->items,
-                         item_init(IT_WATER, x, y, "a water puddle"));
+                         item_init(IT_WATER, x, y, "water bubble"));
             } else {
-                add_item(game->items, item_init(IT_APPLE, x, y, "an apple"));
+                add_item(game->items, item_init(IT_APPLE, x, y, "apple"));
             }
         }
     }

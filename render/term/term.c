@@ -1,6 +1,6 @@
 #include "rogue.h"
 #include "term.h"
-#include "util.h"
+#include "utils.h"
 #include <locale.h>
 
 static WINDOW* map_win;
@@ -139,11 +139,30 @@ void
 draw_inventory(player_t* p)
 {
     wmove(ctl_content_win, 0, 0);
-    for (int i = 0; i <= p->inventory->last_item; i++) {
-        item_t* item = get_item(p->inventory, i);
-        if (item != NULL) {
-            wprintw(ctl_content_win, "%d - %s\n", i + 1, item->name);
+    wattrset(ctl_content_win, A_STANDOUT | COLOR_RED);
+    wprintw(ctl_content_win, "INVENTORY\n");
+    wattrset(ctl_content_win, A_NORMAL);
+
+    if (p->inventory->last_item >= 0) {
+        int len = p->inventory->last_item + 1;
+        const char* names[len];
+        int i;
+
+        for (i = 0; i < len; i++) {
+            names[i] = get_item(p->inventory, i)->name;
         }
+        sort_strings(names, len);
+
+        int count = 1;
+        for (i = 1; i < len; i++) {
+            if (strcmp(names[i], names[i - 1]) == 0) {
+                count++;
+            } else {
+                wprintw(ctl_content_win, "% 3dx %s\n", count, names[i - 1]);
+                count = 1;
+            }
+        }
+        wprintw(ctl_content_win, "% 3dx %s\n", count, names[i - 1]);
     }
 }
 
