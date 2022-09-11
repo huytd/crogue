@@ -1,7 +1,14 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "rogue.h"
+typedef enum
+{
+    IT_APPLE  = 0,
+    IT_BANANA = 1,
+    IT_CORPSE = 2,
+    IT_WATER  = 3,
+    IT_ROCK   = 4
+} item_type_e;
 
 typedef struct
 {

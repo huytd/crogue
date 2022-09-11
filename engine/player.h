@@ -1,7 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "rogue.h"
+#include "tile.h"
+#include "item.h"
 
 typedef struct
 {

@@ -1,4 +1,5 @@
 #include "rogue.h"
+#include "utils.h"
 #include <string.h>
 
 game_t*

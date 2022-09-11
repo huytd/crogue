@@ -1,4 +1,5 @@
 #include "rogue.h"
+#include "utils.h"
 
 player_t*
 player_init()

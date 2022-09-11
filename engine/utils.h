@@ -1,50 +1,29 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include "rogue.h"
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
 
-static bool
-is_between(int val, int min, int max)
-{
-    return val >= min && val <= max;
-}
+bool
+is_between(int val, int min, int max);
 
-static bool
-is_within_map(int x, int y)
-{
-    return is_between(x, 0, MAP_WIDTH - 1) && is_between(y, 0, MAP_HEIGHT - 1);
-}
+bool
+is_within_map(int x, int y);
 
-static int
-min(int a, int b)
-{
-    return a < b ? a : b;
-}
+int
+min(int a, int b);
 
-static int
-max(int a, int b)
-{
-    return a > b ? a : b;
-}
+int
+max(int a, int b);
 
-static int
-gen_number(int min, int max)
-{
-    return rand() % (max - min + 1) + min;
-}
+int
+gen_number(int min, int max);
 
-static int
-string_comparator(const void* a, const void* b)
-{
-    return strcmp(*(const char**)a, *(const char**)b);
-}
+int
+string_comparator(const void* a, const void* b);
 
-static void
-sort_strings(const char* arr[], int n)
-{
-    qsort(arr, n, sizeof(const char*), string_comparator);
-}
+void
+sort_strings(const char* arr[], int n);
 
 #endif

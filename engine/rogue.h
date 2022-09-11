@@ -24,18 +24,8 @@ typedef enum
     ET_BEAR   = 7,
 } entity_type_e;
 
-typedef enum
-{
-    IT_APPLE  = 0,
-    IT_BANANA = 1,
-    IT_CORPSE = 2,
-    IT_WATER  = 3,
-    IT_ROCK   = 4
-} item_type_e;
-
 #include "tile.h"
 #include "item.h"
-#include "utils.h"
 #include "player.h"
 #include "light.h"
 #include "game.h"

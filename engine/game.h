@@ -1,7 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "rogue.h"
+#include "tile.h"
+#include "player.h"
+#include "item.h"
 
 #define MESSAGE_SIZE 256
 #define MAX_MESSAGES 1024

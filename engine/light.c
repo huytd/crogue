@@ -1,4 +1,5 @@
 #include "light.h"
+#include "utils.h"
 
 void
 calculate_light(tile_t** map, player_t* player)

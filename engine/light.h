@@ -1,7 +1,8 @@
 #ifndef LIGHT_H
 #define LIGHT_H
 
-#include "rogue.h"
+#include "tile.h"
+#include "player.h"
 
 #define LIGHT_RADIUS 6
 
